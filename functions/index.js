@@ -66,7 +66,7 @@ app.get("/search", (req, res) => {
         }
       }
     });
-    res.status().send(products);
+    res.status(200).send(products);
   });
 });
 
@@ -79,7 +79,7 @@ app.get("/products", (req, res) => {
         snapshot.forEach((doc) => {
           products.push(doc.data());
         });
-        res.send(products);
+        res.status(200).send(products);
       })
       .catch((err) => {
         console.log("Error getting documents", err);
