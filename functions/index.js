@@ -14,23 +14,23 @@ app.use(cors());
 initializeApp();
 const db = getFirestore();
 
-const setCache = function(req, res, next) {
-  // define period in seconds for cache.
-  const period = 60 * 10080;// 60 * 24 * 7; 1 week
+// const setCache = function(req, res, next) {
+//   // define period in seconds for cache.
+//   // const period = 60 * 10080;// 60 * 24 * 7; 1 week
 
-  // you only want to cache for GET requests
-  if (req.method == "GET") {
-    res.set("Cache-control", `public, max-age=${period}`);
-  } else {
-    // for the other requests set strict no caching parameters
-    res.set("Cache-control", "no-store");
-  }
-  next();
-};
+//   // you only want to cache for GET requests
+//   if (req.method == "GET") {
+//     // res.set("Cache-control", `public, max-age=${period}`);
+//   } else {
+//     // for the other requests set strict no caching parameters
+//     res.set("Cache-control", "no-store");
+//   }
+//   next();
+// };
 
-// now call the new middleware function in your app
+// // now call the new middleware function in your app
 
-app.use(setCache);
+// app.use(setCache);
 
 // create index route
 app.get("/", (req, res) => {
@@ -91,4 +91,4 @@ app.get("/products", (req, res) => {
 // });
 
 // export functions
-exports.api = functions.https.onRequest(app);
+exports.api1 = functions.https.onRequest(app);
